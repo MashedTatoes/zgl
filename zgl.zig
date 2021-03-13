@@ -98,6 +98,12 @@ pub const Texture = enum(c.GLuint) {
     pub const subImage3D = textureSubImage3D;
 };
 
+//GLAD
+pub const gladLoadProc = c.GLADloadproc;
+pub fn gladLoadGL(procAddress : gladLoadProc) bool{
+    return c.gladLoadGLLoader(@ptrCast(c.GLADloadproc, procAddress)) != 0;
+}
+
 pub const ErrorHandling = enum {
     /// OpenGL functions will log the error, but will not assert that no error happened
     log,
@@ -328,23 +334,25 @@ pub fn clear(mask: struct { color: bool = false, depth: bool = false, stencil: b
 // Vertex Arrays
 
 pub fn createVertexArrays(items: []VertexArray) void {
+    
     c.glCreateVertexArrays(cs2gl(items.len), @ptrCast([*]c.GLuint, items.ptr));
     checkError();
 }
 
 pub fn createVertexArray() VertexArray {
-    var vao: VertexArray = undefined;
+    var vao: VertexArray = VertexArray.invalid;
     createVertexArrays(@ptrCast([*]VertexArray, &vao)[0..1]);
     return vao;
 }
 
 pub fn genVertexArrays(items: []VertexArray) void {
+    
     c.glGenVertexArrays(cs2gl(items.len), @ptrCast([*]c.GLuint, items.ptr));
     checkError();
 }
 
 pub fn genVertexArray() VertexArray {
-    var vao: VertexArray = undefined;
+    var vao: VertexArray = VertexArray.invalid;
     genVertexArrays(@ptrCast([*]VertexArray, &vao)[0..1]);
     return vao;
 }
