@@ -1,4 +1,4 @@
-# ZGL – Zig OpenGL Bindings
+# ZGL-glad – Zig OpenGL Bindings
 
 Port of [zgl](https://github.com/ziglibs/zgl) targeting `GLAD` instead of `libepoxy` 
 
@@ -29,7 +29,7 @@ pub fn build(b: *std.build.Builder) void {
   exe.addIncludeDir("deps/glfw/include");
   exe.addIncludeDir("deps/glad/include");
   exe.addCSourceFile("deps/glad/src/glad.c",&[_][]const u8 {});
-  exe.addPackagePath("gl","deps/zgl/zgl.zig");
+  exe.addPackagePath("gl","deps/zgl-glad/zgl.zig");
   
   //Libaries
   //
