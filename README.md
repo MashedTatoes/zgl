@@ -1,6 +1,6 @@
 # ZGL-glad – Zig OpenGL Bindings
 
-Port of [zgl](https://github.com/ziglibs/zgl) targeting `GLAD` instead of `libepoxy` 
+Frok of [zgl](https://github.com/ziglibs/zgl) targeting `GLAD` instead of `libepoxy` 
 
 Im building this with my own personal project so bugs and discrepancies between libepoxy and GLAD will only be fixed if I encounter them. 
 
