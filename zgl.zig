@@ -1,7 +1,7 @@
 const std = @import("std");
 
 const c = @cImport({
-    @cInclude("epoxy/gl.h");
+    @cInclude("glad/glad.h");
 });
 
 comptime {
@@ -138,9 +138,9 @@ fn checkError() void {
             c.GL_INVALID_FRAMEBUFFER_OPERATION => "invalid framebuffer operation",
             // c.GL_INVALID_FRAMEBUFFER_OPERATION_EXT => Error.InvalidFramebufferOperation,
             // c.GL_INVALID_FRAMEBUFFER_OPERATION_OES => Error.InvalidFramebufferOperation,
-            c.GL_TABLE_TOO_LARGE => "Table too large",
+            
             // c.GL_TABLE_TOO_LARGE_EXT => Error.TableTooLarge,
-            c.GL_TEXTURE_TOO_LARGE_EXT => "Texture too large",
+            
             else => "unknown error",
         };
 
