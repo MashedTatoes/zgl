@@ -583,7 +583,7 @@ pub fn genBuffer() Buffer {
     return buf;
 }
 
-pub fn bindBuffer(buf: Buffer, target: BufferTarget) void {
+pub fn bindBuffer(target: BufferTarget,buf: Buffer) void {
     c.glBindBuffer(@enumToInt(target), @enumToInt(buf));
     checkError();
 }
