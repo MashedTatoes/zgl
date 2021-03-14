@@ -797,7 +797,7 @@ pub fn getUniformLocation(program: Program, name: [:0]const u8) ?u32 {
 }
 
 pub fn validateProgram(program: Program) void{
-    c.glLinkProgram(@enumToInt(program));
+    c.glValidateProgram(@enumToInt(program));
     checkError();
 
 }
