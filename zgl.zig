@@ -101,7 +101,7 @@ pub const Texture = enum(c.GLuint) {
 //GLAD
 pub const gladLoadProc = c.GLADloadproc;
 pub fn gladLoadGL(procAddress : gladLoadProc) bool{
-    return c.gladLoadGLLoader(@ptrCast(c.GLADloadproc, procAddress)) != 0;
+    return c.gladLoadGLLoader(procAddress) != 0;
 }
 
 pub const ErrorHandling = enum {
