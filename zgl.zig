@@ -55,7 +55,7 @@ pub const Shader = enum(c.GLuint) {
 };
 
 pub const Program = enum(c.GLuint) {
-    invalid = 0,
+    invalid = 0,    
     _,
 
     pub const create = createProgram;
@@ -821,7 +821,14 @@ pub fn programUniform1i(program: Program, location: ?u32, value: i32) void {
 
 pub fn programUniform1f(program: Program, location: ?u32, value: f32) void {
     if (location) |loc| {
-        c.glProgramUniform1f(@enumToInt(program), @intCast(c.GLint, loc), value);
+        c.glProgramUniform1fglProgramUniform1f(@enumToInt(program), @intCast(c.GLint, loc), value);
+        checkError();
+    }
+}
+
+pub fn programUniform2f(program: Program, location: ?u32, x: f32, y: f32) void {
+    if (location) |loc| {
+        c.glProgramUniform2f(@enumToInt(program), @intCast(c.GLint, loc), x, y);
         checkError();
     }
 }
@@ -832,6 +839,8 @@ pub fn programUniform3f(program: Program, location: ?u32, x: f32, y: f32, z: f32
         checkError();
     }
 }
+
+
 
 pub fn programUniform4f(program: Program, location: ?u32, x: f32, y: f32, z: f32, w: f32) void {
     if (location) |loc| {
